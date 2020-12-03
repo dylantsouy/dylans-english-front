@@ -1,6 +1,6 @@
 ## [Dylan's Words Demo]
 
-## [Angular + Material + Typescript + Scss + Node.js + Express + Heroku] 
+## Angular + Material + Typescript + Scss + Node.js + Express + Heroku
 
 ### What's included
 
