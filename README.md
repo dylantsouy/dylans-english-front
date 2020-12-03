@@ -1,6 +1,6 @@
 ## [Dylan's Words Demo]
 
-## [Angular + Material + Typescript + Scss + Node.js + Express + Heroku] 
+### [Angular + Material + Typescript + Scss + Node.js + Express + Heroku] 
 
 ### What's included
 
@@ -33,13 +33,13 @@ material-dashboard-angular
 │   │   └── shared
 │   ├── assets
 │   │   ├── styles
-│   │   │   └── icons
-│   │   │   └── app.css
-│   │   │   └── header.css
-│   │   │   └── responsive.css
-│   │   │   └── sidebar.css
-│   │   │   └── spinner.css
-│   │   │   └── style.css
+│   │   │   ├── icons
+│   │   │   ├── app.css
+│   │   │   ├── header.css
+│   │   │   ├── responsive.css
+│   │   │   ├── sidebar.css
+│   │   │   ├── spinner.css
+│   │   │   ├── style.css
 │   │   │   └── variable.css
 │   │   ├── images
 │   │   └── gitkeep
