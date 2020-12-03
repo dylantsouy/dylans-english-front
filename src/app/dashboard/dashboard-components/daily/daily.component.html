@@ -1,0 +1,52 @@
+<mat-card>
+    <mat-tab-group>
+        <!-- Tab 1 -->
+        <mat-tab label="每日單字">
+            <mat-card-content>
+                <a href="#" class="no-blcok" *ngFor='let daily of dailyData'>
+                    <div class="word-set">
+                        <div class="word">{{daily.word}}</div>
+                        <div class="word-speech">{{daily.speech}}</div>
+                        <div class="word-chinese">{{daily.chinese}}</div>
+                    </div>
+                    <div class="sentence-set">
+                        <div class="word-sentence">{{daily.sentence}}</div>
+                        <div class="word-sentence-chinese">{{daily.sentenceChinese}}</div>
+                    </div>
+                </a>
+            </mat-card-content>
+        </mat-tab>
+        <!-- End Tab 1 -->
+        <!-- Tab 2 -->
+        <mat-tab label="每日文章">
+            <mat-card-content>
+                <div class="article-title">I'm Testing Article</div>
+                <!-- ============================================================== -->
+                <!-- column -->
+                <!-- ============================================================== -->
+                <div class="article-english">
+                    Little Red Riding Hood lived with her mother at the edge of the forest. Her grandmother lived at the
+                    other edge of the forest, and every Sunday Little Red Riding Hood would pack a basket of food and go
+                    visit her. One Sunday, as Little Red Riding Hood was wandering down the lane, a wolf blocked her
+                    way.
+                </div>
+                <div class="article-chinese">
+                    小紅帽和她的母親居住在森林的邊緣。但她的外婆則生活在森林的另一側，每個星期天，
+                    小紅帽都會帶著一籃子的食物穿越過森林去找外婆。有一天，小紅帽正沿著森林的小徑行走時，
+                    有一隻大野狼擋住了她的去路。
+                </div>
+                <mat-divider></mat-divider>
+
+                <div class="article-words">
+                    <a href="#" *ngFor='let daily of dailyData'>
+                        <div class="word-set">
+                            <div class="word">{{daily.word}}</div>
+                            <div class="word-speech">{{daily.speech}}</div>
+                            <div class="word-chinese">{{daily.chinese}}</div>
+                        </div>
+                    </a>
+                </div>
+            </mat-card-content>
+        </mat-tab>
+    </mat-tab-group>
+</mat-card>
