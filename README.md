@@ -2,7 +2,7 @@
 
 ### Angular + Material + Typescript + Scss + Node.js + Express + Heroku  
   
-<b>Project now is under construction</b>  
+<b style="color:red">Project now is under construction</b>  
 
 ### What's included  
 
