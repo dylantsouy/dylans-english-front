@@ -1,8 +1,10 @@
 ## [Dylan's Words Demo]
 
-### Angular + Material + Typescript + Scss + Node.js + Express + Heroku
+### Angular + Material + Typescript + Scss + Node.js + Express + Heroku  
+  
+<b>Project now is under construction</b>  
 
-### What's included
+### What's included  
 
 ```
 material-dashboard-angular
