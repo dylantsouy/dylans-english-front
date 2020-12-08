@@ -35,10 +35,11 @@ export class WordService {
   }
 
   getLessonsByLevel(level: string): Observable<HttpResponse<any[]>> {
-    return this.http.post<Word[]>(SERVER_API_URL + 'api/words/getLessonsByLevel', level, { observe: 'response' });
+    const data = { level: level }
+    return this.http.post<Word[]>(SERVER_API_URL + 'api/words/getLessonsByLevel', data, { observe: 'response' });
   }
 
-  getWordsByLesson(level: string, lesson: string): Observable<HttpResponse<Word[]>> {
+  getWordsByLesson(level: string, lesson: Number): Observable<HttpResponse<Word[]>> {
     const data = { level: level, lesson: lesson }
     return this.http.post<Word[]>(SERVER_API_URL + 'api/words/getWordsByLesson', data, { observe: 'response' });
   }

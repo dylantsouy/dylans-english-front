@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Daily, dailys } from './daily-data';
+import { DailyWord, DailyArticle } from '../../../shared//model/daily.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { DailyWordService } from '../../../shared/services/dailyword.services';
+import { DailyArticleService } from '../../../shared/services/dailyarticle.services';
 
 @Component({
   selector: 'app-daily',
@@ -8,15 +11,40 @@ import { Daily, dailys } from './daily-data';
 })
 export class DailyComponent implements OnInit {
 
-  dailyData: Daily[];
+  dailyWords?: DailyWord[];
+  dailyArticle?: DailyArticle[];
+  loading = false;
 
-  constructor() {
-
-    this.dailyData = dailys;
-  }
-
-
+  constructor(
+    private dailyWordService: DailyWordService,
+    private dailyArticleService: DailyArticleService,
+    private snackBar: MatSnackBar
+  ) { }
   ngOnInit(): void {
+    this.getDailyWords();
+    this.getDailyArticle();
   }
-
+  // get api
+  getDailyWords(): void {
+    this.loading = true;
+    this.dailyWordService.get().subscribe(res => {
+      if (res.body === null || res.headers === null) {
+        this.snackBar.open('獲取功能資料失敗', '關閉');
+        return;
+      }
+      this.dailyWords = res.body;
+      this.loading = false;
+    });
+  }
+  getDailyArticle(): void {
+    this.loading = true;
+    this.dailyArticleService.get().subscribe(res => {
+      if (res.body === null || res.headers === null) {
+        this.snackBar.open('獲取功能資料失敗', '關閉');
+        return;
+      }
+      this.dailyArticle = res.body;
+      this.loading = false;
+    });
+  }
 }

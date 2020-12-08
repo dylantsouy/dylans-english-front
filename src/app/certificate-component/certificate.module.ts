@@ -13,6 +13,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { CertificateRoutes } from './certificate.routing';
 
 import { OrangeComponent } from './orange/orange.component';
+import { DetailComponent } from './detail/detail.component';
 import { BrownComponent } from './brown/brown.component';
 import { GreenComponent } from './green/green.component';
 import { BlueComponent } from './blue/blue.component';
@@ -31,7 +32,7 @@ import { GoldComponent } from './gold/gold.component';
   ],
   providers: [],
   declarations: [
-    OrangeComponent, BrownComponent, GreenComponent, BlueComponent, GoldComponent
+    OrangeComponent, BrownComponent, GreenComponent, BlueComponent, GoldComponent,DetailComponent
   ]
 })
 export class CertificateComponentsModule { }
