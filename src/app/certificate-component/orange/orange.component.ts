@@ -2,32 +2,35 @@ import { Component, OnInit } from '@angular/core';
 import { Word } from '../../shared//model/word.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { WordService } from '../../shared/services/word.services';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-orange',
   templateUrl: './orange.component.html',
-  styleUrls: ['./orange.component.scss']
+  styleUrls: ['../certificate.scss']
 })
 export class OrangeComponent implements OnInit {
 
   words?: Word[];
   loading = false;
-  level = "orange"
-  lessons?: Array<Number>
+  level = 'orange';
+  lessons?: Array<Number>;
   selectedValue = 1;
+  searchWord?: string;
 
   constructor(
     private wordService: WordService,
     private snackBar: MatSnackBar,
-    private router: Router
   ) { }
   ngOnInit(): void {
     this.getLessons();
     this.getWordsByLesson();
   }
   seemore(e: any, _id: string): void {
-    e.stopPropagation()
+    e.stopPropagation();
+  }
+  resetSearch() {
+    this.searchWord = '';
+    this.getWordsByLesson();
   }
   // get all lesson
   getLessons(): void {
@@ -49,7 +52,11 @@ export class OrangeComponent implements OnInit {
         this.snackBar.open('獲取功能資料失敗', '關閉');
         return;
       }
-      this.words = res.body;
+      if (this.searchWord) {
+        this.words = res.body.filter(e => e.word?.includes(this.searchWord || ''));
+      } else {
+        this.words = res.body;
+      }
       this.loading = false;
     });
   }

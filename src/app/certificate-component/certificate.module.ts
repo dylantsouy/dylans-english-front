@@ -18,6 +18,7 @@ import { BrownComponent } from './brown/brown.component';
 import { GreenComponent } from './green/green.component';
 import { BlueComponent } from './blue/blue.component';
 import { GoldComponent } from './gold/gold.component';
+import { TestComponent } from './test/test.component';
 
 @NgModule({
   imports: [
@@ -32,7 +33,7 @@ import { GoldComponent } from './gold/gold.component';
   ],
   providers: [],
   declarations: [
-    OrangeComponent, BrownComponent, GreenComponent, BlueComponent, GoldComponent,DetailComponent
+    OrangeComponent, BrownComponent, GreenComponent, BlueComponent, GoldComponent, DetailComponent, TestComponent
   ]
 })
 export class CertificateComponentsModule { }

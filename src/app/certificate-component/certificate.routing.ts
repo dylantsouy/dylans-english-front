@@ -6,6 +6,7 @@ import { GreenComponent } from './green/green.component';
 import { BlueComponent } from './blue/blue.component';
 import { GoldComponent } from './gold/gold.component';
 import { DetailComponent } from './detail/detail.component';
+import { TestComponent } from './test/test.component';
 
 export const CertificateRoutes: Routes = [
   {
@@ -31,5 +32,9 @@ export const CertificateRoutes: Routes = [
   {
     path: 'detail',
     component: DetailComponent
+  },
+  {
+    path: 'test',
+    component: TestComponent
   },
 ];
