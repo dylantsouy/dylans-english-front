@@ -1,11 +1,12 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Word } from '../shared/model/word.model';  
+import { Word } from '../shared/model/word.model';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-detail',
   templateUrl: './detail.component.html',
-  styleUrls: ['./detail.component.scss']
+  styleUrls: ['./detail.component.scss'],
 })
 export class DetailComponent implements OnInit {
 
@@ -18,6 +19,8 @@ export class DetailComponent implements OnInit {
 
   ngOnInit(): void {
     this.word = this.data;
+    console.log(this.word);
+
   }
   onNoClick(): void {
     this.dialogRef.close();

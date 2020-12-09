@@ -29,8 +29,8 @@ export class CertificateComponent implements OnInit {
   ) { }
   ngOnInit(): void {
     this.route.data.subscribe(data => {
-      this.routerData = data
-      this.level = data.name
+      this.routerData = data;
+      this.level = data.name;
     });
     this.getLessons();
     this.getWordsByLesson();
