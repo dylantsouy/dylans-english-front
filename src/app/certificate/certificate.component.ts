@@ -1,32 +1,45 @@
 import { Component, OnInit } from '@angular/core';
-import { Word } from '../../shared//model/word.model';
+import { Word, RouterData } from '../shared/model/word.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { WordService } from '../../shared/services/word.services';
+import { WordService } from '../shared/services/word.services';
+import { ActivatedRoute } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { DetailComponent } from '../detail/detail.component';
 
 @Component({
-  selector: 'app-gold',
-  templateUrl: './gold.component.html',
-  styleUrls: ['../certificate.scss']
+  selector: 'app-certificate',
+  templateUrl: './certificate.component.html',
+  styleUrls: ['./certificate.scss']
 })
-export class GoldComponent implements OnInit {
+export class CertificateComponent implements OnInit {
 
   words?: Word[];
   loading = false;
-  level = 'gold';
+  level = 'orange';
   lessons?: Array<Number>;
   selectedValue = 1;
   searchWord?: string;
+  routerData?: RouterData;
 
   constructor(
+    public dialog: MatDialog,
     private wordService: WordService,
     private snackBar: MatSnackBar,
+    private route: ActivatedRoute,
   ) { }
   ngOnInit(): void {
+    this.route.data.subscribe(data => {
+      this.routerData = data
+      this.level = data.name
+    });
     this.getLessons();
     this.getWordsByLesson();
   }
-  seemore(e: any, _id: string): void {
+  seeDetail(e: Event, word: Word) {
     e.stopPropagation();
+    this.dialog.open(DetailComponent, {
+      data: word
+    });
   }
   resetSearch() {
     this.searchWord = '';

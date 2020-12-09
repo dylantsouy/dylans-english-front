@@ -18,11 +18,20 @@ export interface Word {
 }
 
 export interface ErorMsg {
-  statusCode: Number;
-  message: String;
+  statusCode?: Number;
+  message?: String;
 }
 
 export interface Message {
-  message: String;
-  _id: String;
+  message?: String;
+  _id?: String;
+}
+
+export interface RouterData {
+  describe?: String;
+  level?: Number;
+  name?: String;
+  score?: String;
+  subtitle?: String;
+  title?: String;
 }

@@ -4,7 +4,17 @@
   align-items: center;
   justify-content: space-between;
 }
-
+.leve {
+  font-size: 20px;
+  color: rgb(114, 192, 186);
+  font-weight: 600;
+}
+.score {
+  font-size: 12px;
+}
+.mat-card-title {
+  transform: translateX(-2.5px);
+}
 .word-chinese {
   font-size: 20px;
   margin: 0 0 10px;
@@ -44,7 +54,7 @@
   margin: 0 5px !important;
 }
 
-@media screen and (max-width:784px) {
+@media screen and (max-width: 784px) {
   .mat-expansion-panel-body {
     padding: 5px 0px 5px 10px;
   }
@@ -52,5 +62,4 @@
   .mat-expansion-panel-header {
     padding: 5px 0px 5px 10px;
   }
-
 }

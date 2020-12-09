@@ -28,7 +28,7 @@ material-dashboard-angular
 │   │   ├── app.module.ts
 │   │   ├── app.routing.ts
 │   │   ├── material-module.ts
-│   │   ├── certificate-component >> 等級證書 componet
+│   │   ├── certificate >> 等級證書 componet
 │   │   ├── dashboard >> dashboard componet
 │   │   ├── layouts
 │   │   │   └── default

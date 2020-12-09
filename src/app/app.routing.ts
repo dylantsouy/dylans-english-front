@@ -15,7 +15,7 @@ export const AppRoutes: Routes = [
       {
         path: '',
         loadChildren:
-          () => import('./certificate-component/certificate.module').then(m => m.CertificateComponentsModule)
+          () => import('./certificate/certificate.module').then(m => m.CertificateComponentsModule)
       },
       {
         path: 'dashboard',
