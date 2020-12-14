@@ -1,7 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Word } from '../shared/model/word.model';
-import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-detail',
