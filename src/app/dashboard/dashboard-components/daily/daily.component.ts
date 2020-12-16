@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { DailyWord, DailyArticle } from '../../../shared//model/daily.model';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { DailyWordService } from '../../../shared/services/dailyword.services';
@@ -10,7 +10,7 @@ import { DailyArticleService } from '../../../shared/services/dailyarticle.servi
   styleUrls: ['./daily.component.scss']
 })
 export class DailyComponent implements OnInit {
-
+  @Input() storeData: any;
   dailyWords?: DailyWord[];
   dailyArticle?: DailyArticle[];
   loading = false;

@@ -1,7 +1,8 @@
 <!-- ============================================================== -->
 <!-- Profile - style you can find in header.scss -->
 <!-- ============================================================== -->
-<button mat-raised-button color="warn">登入</button>
+<button mat-raised-button (click)="login()" color="warn" *ngIf="!store.token">登入</button>
+<button mat-raised-button (click)="logout()" color="warn" *ngIf="store.token">登出</button>
 <!-- <button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5"> <img src="assets/images/users/man1.png" alt="user"
         class="profile-pic"> </button>
 <mat-menu #profile="matMenu" class="mymegamenu">

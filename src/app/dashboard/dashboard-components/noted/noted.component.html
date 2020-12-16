@@ -2,12 +2,12 @@
     <div class="p-20 bg-info position-relative">
         <h4 class="card-title text-white m-0">備註單字</h4>
         <h6 class="card-subtitle text-white m-0 op-5">紀錄您備註的單字</h6>
-        <button mat-mini-fab color="accent" class="add-noted">+</button>
+        <button mat-mini-fab color="accent" class="add-noted" *ngIf="storeData.token">+</button>
     </div>
     <div class="message-box noted-box p-20">
-        <div class="message-widget noted-widget">
+        <div class="message-widget noted-widget" *ngIf="storeData.user && storeData.user.notedWords">
             <!-- Message -->
-            <a class="note-word" href="#" *ngFor='let noted of notedsData'>
+            <a class="note-word" href="#" *ngFor='let noted of storeData.user.notedWords'>
                 <div class="word-set">
                     <div class="word">{{noted.word}}</div>
                     <div class="word-speech">{{noted.speech}}</div>
@@ -15,6 +15,11 @@
                 </div>
                 <div class="array">></div>
             </a>
+        </div>
+        <div class="message-widget noted-widget"
+            *ngIf="!storeData.user || (storeData.user && !storeData.user.notedWords)">
+            <!-- Message -->
+            尚無資料
         </div>
     </div>
 </mat-card>

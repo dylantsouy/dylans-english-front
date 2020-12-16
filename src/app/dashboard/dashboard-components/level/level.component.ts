@@ -1,12 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewChecked, Input } from '@angular/core';
 import * as Chartist from 'chartist';
-import { ChartType, ChartEvent } from 'ng-chartist';
-declare var require: any;
-
-const data= require('./data.json');
+import { ChartEvent } from 'ng-chartist';
+import { StoreService } from '../../../shared/store';
 
 export interface Chart {
-	type: ChartType;
+	type: string;
 	data: Chartist.IChartistData;
 	options?: any;
 	responsiveOptions?: any;
@@ -14,15 +12,24 @@ export interface Chart {
 }
 
 @Component({
-  selector: 'app-level',
-  templateUrl: './level.component.html',
-  styleUrls: ['./level.component.scss']
+	selector: 'app-level',
+	templateUrl: './level.component.html',
+	styleUrls: ['./level.component.scss']
 })
-export class LevelComponent implements OnInit {
-
-  donuteChart1: Chart = {
+export class LevelComponent implements AfterViewChecked {
+	@Input() storeData: any;
+	donuteChart1: Chart = this.store.level || {
 		type: 'Pie',
-		data: data['Pie'],
+		data: {
+			series: [
+				0,
+				0,
+				0,
+				0,
+				0,
+				100
+			]
+		},
 		options: {
 			donut: true,
 			height: 260,
@@ -30,10 +37,11 @@ export class LevelComponent implements OnInit {
 			donutWidth: 20
 		}
 	};
+	constructor(
+		public store: StoreService
+	) { }
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+	ngAfterViewChecked(): void {
+		this.donuteChart1 = this.storeData.level
+	}
 }

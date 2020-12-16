@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Noted, noteds } from './noted-data';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-noted',
@@ -7,15 +6,13 @@ import { Noted, noteds } from './noted-data';
   styleUrls: ['./noted.component.scss']
 })
 export class NotedComponent implements OnInit {
-
-  notedsData: Noted[];
+  @Input() storeData: any;
 
   constructor() {
-
-    this.notedsData = noteds;
   }
 
   ngOnInit(): void {
+    
   }
 
 }

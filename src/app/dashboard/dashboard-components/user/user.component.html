@@ -4,23 +4,24 @@
         <div class="pro-img">
             <img src="assets/images/users/man1.png" width="100" alt="user" class="img-circle">
         </div>
-        <h3 class="m-b-0">匿名使用者</h3>
-        <h6 class="m-t-0 ">尚未登入</h6>
+        <h3 class="m-b-0">{{storeData.user ? storeData.user.name : '匿名使用者'}}</h3>
+        <h6 class="m-t-0">{{storeData.user ? storeData.user.username : '尚未登入'}}</h6>
         <mat-card-actions>
-            <button mat-raised-button color="warn" (click)="login()">登入</button>
+            <button mat-raised-button color="warn" (click)="login()" *ngIf="!storeData.token">登入</button>
+            <button mat-raised-button color="warn" (click)="logout()" *ngIf="storeData.token">登出</button>
         </mat-card-actions>
         <div fxLayout="row" fxLayoutWrap="wrap" class="m-t-30">
             <div fxFlex.gt-sm="33.33%" fxFlex.gt-xs="33.33%" fxFlex="100">
-                <h3 class="m-0 font-light">0</h3>
-                <small>備註量</small>
+                <h3 class="m-0 font-light">{{storeData.user ? storeData.user.created.slice(0,10) : '尚未登入'}}</h3>
+                <small>註冊日期</small>
             </div>
             <div fxFlex.gt-sm="33.33%" fxFlex.gt-xs="33.33%" fxFlex="100">
-                <h3 class="m-0 font-light">0</h3>
-                <small>閱讀量</small>
-            </div>
-            <div fxFlex.gt-sm="33.33%" fxFlex.gt-xs="33.33%" fxFlex="100">
-                <h3 class="m-0 font-light">0</h3>
+                <h3 class="m-0 font-light">{{storeData.user ? storeData.user.knowWords.length : '0'}}</h3>
                 <small>完成量</small>
+            </div>
+            <div fxFlex.gt-sm="33.33%" fxFlex.gt-xs="33.33%" fxFlex="100">
+                <h3 class="m-0 font-light">{{storeData.user ? storeData.user.notedWords.length : '0'}}</h3>
+                <small>備註量</small>
             </div>
         </div>
     </mat-card-content>

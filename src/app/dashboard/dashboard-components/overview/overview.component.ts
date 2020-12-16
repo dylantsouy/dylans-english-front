@@ -1,12 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, AfterViewChecked, Input } from '@angular/core';
 import * as Chartist from 'chartist';
-import { ChartType, ChartEvent } from 'ng-chartist';
+import { ChartEvent } from 'ng-chartist';
+import { StoreService } from '../../../shared/store';
 
-declare var require: any;
-const data= require('./data.json');
 
 export interface Chart {
-	type: ChartType;
+	type: string;
 	data: Chartist.IChartistData;
 	options?: any;
 	responsiveOptions?: any;
@@ -14,22 +13,25 @@ export interface Chart {
 }
 
 @Component({
-  selector: 'app-overview',
-  templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.scss']
+	selector: 'app-overview',
+	templateUrl: './overview.component.html',
+	styleUrls: ['./overview.component.scss']
 })
-export class OverviewComponent implements OnInit {
-
-  barChart1: Chart = {
+export class OverviewComponent implements AfterViewChecked {
+	@Input() storeData: any;
+	barChart1: Chart = this.store.overview || {
 		type: 'Bar',
-		data: data['Bar'],
+		data: {
+			labels: ["2020", "2021", "2022", "2023", "2024", "2025"],
+			series: [[0, 0, 0, 0, 0, 0]]
+		},
 		options: {
-			seriesBarDistance: 15,
-			high: 12,
+			seriesBarDistance: 100,
+			high: 1000,
 
 			axisX: {
 				showGrid: false,
-				offset: 20
+				offset: 10
 			},
 			axisY: {
 				showGrid: true,
@@ -39,11 +41,11 @@ export class OverviewComponent implements OnInit {
 		},
 
 		responsiveOptions: [
-			[ 
+			[
 				'screen and (min-width: 640px)',
 				{
 					axisX: {
-						labelInterpolationFnc: function(value: number,index: number): string {
+						labelInterpolationFnc: function (value: number, index: number): string {
 							return index % 1 === 0 ? `${value}` : '';
 						}
 					}
@@ -53,9 +55,12 @@ export class OverviewComponent implements OnInit {
 	};
 
 
-  constructor() { }
+	constructor(
+		public store: StoreService
+		) { }
 
-  ngOnInit(): void {
-  }
+		ngAfterViewChecked(): void {
+			this.barChart1 = this.storeData.overview
+		}
 
 }

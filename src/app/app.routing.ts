@@ -18,6 +18,11 @@ export const AppRoutes: Routes = [
           () => import('./certificate/certificate.module').then(m => m.CertificateComponentsModule)
       },
       {
+        path: '',
+        loadChildren:
+          () => import('./login/login.module').then(m => m.LoginComponentsModule)
+      },
+      {
         path: 'dashboard',
         loadChildren: () => import('./dashboard/dashboard.module').then(m => m.DashboardModule)
       }

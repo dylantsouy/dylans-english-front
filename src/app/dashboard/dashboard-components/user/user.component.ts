@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { LoginComponent } from '../../../login/login.component';
+import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { StoreService } from '../../../shared/store';
 
 @Component({
   selector: 'app-user',
@@ -9,11 +10,21 @@ import { LoginComponent } from '../../../login/login.component';
 })
 export class UserComponent implements OnInit {
 
-  constructor(public dialog: MatDialog) { }
+  constructor(
+    private snackBar: MatSnackBar,
+    private router: Router,
+    public store: StoreService,
+  ) { }
+  @Input() storeData: any;
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
   login() {
-    this.dialog.open(LoginComponent);
+    this.router.navigate(['/login']);
+  }
+  logout() {
+    sessionStorage.removeItem("token");
+    sessionStorage.removeItem("username");
+    this.store.setLoginStatus();
+    this.snackBar.open('登出成功', '關閉');
   }
 }

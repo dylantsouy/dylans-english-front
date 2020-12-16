@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
+import { StoreService } from '../../../shared/store';
 import { MenuItems } from '../../../shared/menu-items/menu-items';
 @Component({
   selector: 'app-sidebar',
@@ -12,6 +13,7 @@ export class AppSidebarComponent implements OnDestroy {
   private _mobileQueryListener: () => void;
 
   constructor(
+    public store: StoreService,
     changeDetectorRef: ChangeDetectorRef,
     media: MediaMatcher,
     public menuItems: MenuItems

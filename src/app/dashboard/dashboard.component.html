@@ -5,14 +5,14 @@
     <!-- column -->
     <div fxFlex.gt-lg="66" fxFlex.gt-md="66" fxFlex.gt-xs="100" fxFlex="100">
 
-        <app-overview></app-overview>
+        <app-overview [storeData]="storeData"></app-overview>
 
     </div>
     <!-- column -->
     <!-- column -->
     <div fxFlex.gt-lg="33" fxFlex.gt-md="33" fxFlex.gt-xs="100" fxFlex="100">
 
-        <app-level></app-level>
+        <app-level [storeData]="storeData"></app-level>
 
     </div>
     <!-- column -->
@@ -25,14 +25,14 @@
     <!-- Card column -->
     <div fxFlex.gt-lg="25" fxFlex.gt-md="40" fxFlex.gt-xs="100" fxFlex="100">
 
-        <app-user></app-user>
-        <app-noted></app-noted>
+        <app-user [storeData]="storeData"></app-user>
+        <app-noted [storeData]="storeData"></app-noted>
     </div>
     <!-- Card column -->
     <!-- Card column -->
     <div fxFlex.gt-lg="75" fxFlex.gt-md="60" fxFlex.gt-xs="100" fxFlex="100">
 
-        <app-daily></app-daily>
+        <app-daily [storeData]="storeData"></app-daily>
 
     </div>
 </div>
