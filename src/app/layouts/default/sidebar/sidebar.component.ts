@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, OnDestroy } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy} from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { StoreService } from '../../../shared/store';
 import { MenuItems } from '../../../shared/menu-items/menu-items';

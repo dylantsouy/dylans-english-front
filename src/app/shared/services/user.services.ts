@@ -26,12 +26,27 @@ export class UserService {
     const data = { username: username }
     return this.http.post<any>(SERVER_API_URL + 'api/users/getUser', data, { observe: 'response' });
   }
-  
+
   getKnowWord(username: string): Observable<HttpResponse<any>> {
     const data = { username: username }
     return this.http.post<any>(SERVER_API_URL + 'api/users/getKnowWord', data, { observe: 'response' });
   }
-
+  addNotedWord(username: string, word: string): Observable<HttpResponse<any>> {
+    const data = { username: username, word: word }
+    return this.http.post<any>(SERVER_API_URL + 'api/users/addNotedWord', data, { observe: 'response' });
+  }
+  removeNotedWord(username: string, word: string): Observable<HttpResponse<any>> {
+    const data = { username: username, word: word }
+    return this.http.post<any>(SERVER_API_URL + 'api/users/removeNotedWord', data, { observe: 'response' });
+  }
+  addKnowWord(username: string, word: string): Observable<HttpResponse<any>> {
+    const data = { username: username, word: word }
+    return this.http.post<any>(SERVER_API_URL + 'api/users/addKnowWord', data, { observe: 'response' });
+  }
+  removeKnowWord(username: string, word: string): Observable<HttpResponse<any>> {
+    const data = { username: username, word: word }
+    return this.http.post<any>(SERVER_API_URL + 'api/users/removeKnowWord', data, { observe: 'response' });
+  }
   getOverview(username: string): Observable<HttpResponse<any>> {
     const data = { username: username }
     return this.http.post<any>(SERVER_API_URL + 'api/users/getOverview', data, { observe: 'response' });

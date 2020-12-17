@@ -116,10 +116,12 @@ export class LoginComponent implements OnInit {
       if (res.body === null || res.headers === null) {
         this.snackBar.open('登入失敗', '關閉');
         return;
+      } if (res.body.statusCode === 400) {
+        this.re_accountErr = res.body.message;
+        return;
       }
       sessionStorage.setItem('token', res.body.token);
       sessionStorage.setItem("username", this.re_account || '');
-      this.store.setLoginStatus();
       this.router.navigate(['/dashboard'])
       this.snackBar.open('登入成功', '關閉');
       this.re_accountErr = ''
@@ -150,6 +152,7 @@ export class LoginComponent implements OnInit {
       this.accountErr = ''
       return;
     }
+    
     this.accountErr = ''
     this.passwordErr = ''
     const data = { username: this.account, password: this.password }
@@ -162,9 +165,9 @@ export class LoginComponent implements OnInit {
         this.passwordErr = '登入失敗,請確認您的帳號密碼'
         return;
       }
+      
       sessionStorage.setItem('token', res.body.token);
       sessionStorage.setItem("username", this.account || '');
-      this.store.setLoginStatus();
       this.router.navigate(['/dashboard'])
       this.snackBar.open('登入成功', '關閉');
       this.passwordErr = ''

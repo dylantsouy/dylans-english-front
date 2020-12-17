@@ -25,6 +25,19 @@
             <mat-option *ngFor="let lesson of lessons" [value]='lesson'>第 {{lesson}} 課</mat-option>
         </mat-select>
     </mat-form-field>
+
+    <span *ngIf="store.user"><img src="../../assets/images/know.svg" alt="know"> 已記熟單字</span>
+
+    <span *ngIf="store.user"><img src="../../assets/images/notKnow.svg" alt="notKnow"> 尚未記熟單字 </span>
+   <!--  <span *ngIf="store.user">
+        <span class="material-icons">
+            border_color
+        </span> 備註單字
+    </span> -->
+    <span class="material-icons">
+        travel_explore
+    </span>
+     看單字詳細 
     <ng-container *ngFor="let word of words">
         <mat-expansion-panel hideToggle>
             <mat-expansion-panel-header>
@@ -34,15 +47,21 @@
                             <div class="word-set">
                                 <div class="word">{{word.word}}</div>
                                 <div class="word-speech">{{word.speech}}</div>
+                                <span *ngIf="store.user && store.knowWord && store.knowWord.indexOf(word.word) !== -1"
+                                    (click)="removeKnow($event,word.word)">
+                                    <img src="../../assets/images/know.svg" alt="know">
+                                </span>
+
+                                <span *ngIf="store.user && store.knowWord && store.knowWord.indexOf(word.word) === -1"
+                                    (click)="addKnow($event,word.word)">
+                                    <img src="../../assets/images/notKnow.svg" alt="notKnow">
+                                </span>
                             </div>
                             <div class="sentence-set">
                                 <div class="word-sentence">{{word.sentence}}</div>
                             </div>
                         </div>
                         <a (click)="seeDetail($event,word)" class="right-area">
-                            <div class="see-more">
-                                Detail
-                            </div>
                             <span class="material-icons">
                                 travel_explore
                             </span>

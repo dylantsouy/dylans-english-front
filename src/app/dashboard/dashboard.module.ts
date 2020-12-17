@@ -22,4 +22,4 @@ import { MaterialModule } from '../material-module';
   ],
   declarations: [DashboardComponent, OverviewComponent, LevelComponent, UserComponent, NotedComponent, DailyComponent]
 })
-export class DashboardModule {}
+export class DashboardModule { }

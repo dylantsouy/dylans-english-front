@@ -19,8 +19,8 @@ export class AppHeaderComponent {
     this.router.navigate(['/login']);
   }
   logout(): void {
-    sessionStorage.removeItem("token");
-    sessionStorage.removeItem("username");
+    sessionStorage.removeItem('token');
+    sessionStorage.removeItem('username');
     this.store.setLoginStatus();
     this.snackBar.open('登出成功', '關閉');
   }

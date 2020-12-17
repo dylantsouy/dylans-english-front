@@ -61,7 +61,10 @@
   padding-top: 45px;
   border-radius: 15px !important;
 }
-
+.noted-icon{
+  cursor: pointer;
+  margin-left: 10px;
+}
 .dialog-actions {
   display: flex;
   justify-content: flex-end;
@@ -71,14 +74,10 @@
     color: #fff;
     box-sizing: border-box;
     position: relative;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
     user-select: none;
     cursor: pointer;
     outline: none;
     border: none;
-    -webkit-tap-highlight-color: transparent;
     display: inline-block;
     white-space: nowrap;
     text-decoration: none;

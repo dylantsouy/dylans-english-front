@@ -18,6 +18,7 @@ import { AppSidebarComponent } from './layouts/default/sidebar/sidebar.component
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material-module';
 import { DetailComponent } from './detail/detail.component';
+import { AddnotedComponent } from './addnoted/addnoted.component';
 
 import { SharedModule } from './shared/shared.module';
 import { SpinnerComponent } from './shared/spinner.component';
@@ -29,7 +30,8 @@ import { SpinnerComponent } from './shared/spinner.component';
     AppHeaderComponent,
     SpinnerComponent,
     AppSidebarComponent,
-    DetailComponent
+    DetailComponent,
+    AddnotedComponent
   ],
   imports: [
     CommonModule,

@@ -1,3 +1,21 @@
+
+<!-- ============================================================== -->
+<!-- Image Card row-->
+<!-- ============================================================== -->
+<div fxLayout="row wrap">
+    <!-- Card column -->
+    <div fxFlex.gt-lg="33" fxFlex.gt-md="40" fxFlex.gt-xs="100" fxFlex="100">
+
+        <app-user [storeData]="storeData"></app-user>
+    </div>
+    <!-- Card column -->
+    <!-- Card column -->
+    <div fxFlex.gt-lg="67" fxFlex.gt-md="60" fxFlex.gt-xs="100" fxFlex="100">
+
+        <app-daily [storeData]="storeData"></app-daily>
+        <app-noted [storeData]="storeData"></app-noted>
+    </div>
+</div>
 <!-- ============================================================== -->
 <!-- Simple four boxes Row -->
 <!-- ============================================================== -->
@@ -16,23 +34,4 @@
 
     </div>
     <!-- column -->
-</div>
-
-<!-- ============================================================== -->
-<!-- Image Card row-->
-<!-- ============================================================== -->
-<div fxLayout="row wrap">
-    <!-- Card column -->
-    <div fxFlex.gt-lg="25" fxFlex.gt-md="40" fxFlex.gt-xs="100" fxFlex="100">
-
-        <app-user [storeData]="storeData"></app-user>
-        <app-noted [storeData]="storeData"></app-noted>
-    </div>
-    <!-- Card column -->
-    <!-- Card column -->
-    <div fxFlex.gt-lg="75" fxFlex.gt-md="60" fxFlex.gt-xs="100" fxFlex="100">
-
-        <app-daily [storeData]="storeData"></app-daily>
-
-    </div>
 </div>

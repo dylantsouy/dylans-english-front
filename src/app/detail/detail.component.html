@@ -4,6 +4,9 @@
       <div class="word">{{word.word}}</div>
       <div class="word-speech">{{word.speech}}</div>
       <div class="word-chinese">{{word.chinese}}</div>
+      <!-- <span *ngIf="store.user" (click)="addNoted(word.word)" class="material-icons noted-icon">
+        border_color
+      </span> -->
     </div>
   </h1>
   <div mat-dialog-content>
@@ -18,7 +21,8 @@
       <div class="word-other" *ngIf="word.synonym"><span class="word-other-bg">同</span>{{word.synonym}}</div>
     </div>
   </div>
-  <div class="level-area"><span class="word-level">{{word.level}}</span><span class="word-level">Lesson {{word.lesson}}</span></div>
+  <div class="level-area"><span class="word-level">{{word.level}}</span><span class="word-level">Lesson
+      {{word.lesson}}</span></div>
   <div mat-dialog-actions class="dialog-actions">
     <button (click)="onNoClick()">關閉</button>
   </div>

@@ -1,5 +1,5 @@
 <mat-card>
-    <div class="loading"  *ngIf="loading">
+    <div class="loading" *ngIf="loading">
         <div class="preloader">
             <div class="spinner">
                 <div class="double-bounce1"></div>
@@ -11,7 +11,7 @@
         <!-- Tab 1 -->
         <mat-tab label="每日單字">
             <mat-card-content>
-                <a href="#" class="no-blcok" *ngFor='let daily of dailyWords'>
+                <div class="no-blcok" *ngFor='let daily of dailyWords'>
                     <div class="word-set">
                         <div class="word">{{daily.word}}</div>
                         <div class="word-speech">{{daily.speech}}</div>
@@ -21,7 +21,7 @@
                         <div class="word-sentence">{{daily.sentence}}</div>
                         <div class="word-sentence-chinese">{{daily.sentenceChinese}}</div>
                     </div>
-                </a>
+                </div>
             </mat-card-content>
         </mat-tab>
         <!-- End Tab 1 -->
@@ -42,13 +42,18 @@
                     <mat-divider></mat-divider>
 
                     <div class="article-words" *ngIf="article.words">
-                        <a href="#" *ngFor='let word of article.words'>
+                        <div *ngFor='let word of article.words'>
                             <div class="word-set">
-                                <div class="word">{{word.word}}</div>
-                                <div class="word-speech">{{word.speech}}</div>
-                                <div class="word-chinese">{{word.chinese}}</div>
+                                <div class="word">
+                                    <div class="word-english">
+                                        {{word.word}}
+                                        <span class="word-speech">{{word.speech}}</span>
+                                    </div>
+                                    <div class="word-chinese">{{word.chinese}}</div>
+                                </div>
+
                             </div>
-                        </a>
+                        </div>
                     </div>
                 </div>
             </mat-card-content>

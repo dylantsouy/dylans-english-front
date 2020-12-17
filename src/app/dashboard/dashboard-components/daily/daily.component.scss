@@ -1,0 +1,32 @@
+::ng-deep .mat-tab-body-wrapper{
+    min-height: 483px !important;
+}
+.article{
+    .ng-star-inserted{
+        margin-right: 20px;
+    }
+    .article-words{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .word{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        margin-right: 5px;
+        .word-english{
+            width: 100%;
+        }
+        .word-chinese{
+            width: 100%;
+            color: #777;
+        }
+    }
+    .word-speech{
+        line-height: 0;
+        padding: 0px 3px;
+        margin: 0;
+    }
+}

@@ -5,6 +5,8 @@ import { WordService } from '../shared/services/word.services';
 import { ActivatedRoute } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 import { DetailComponent } from '../detail/detail.component';
+import { StoreService } from '../shared/store';
+import { UserService } from '../shared/services/user.services';
 
 @Component({
   selector: 'app-certificate',
@@ -12,7 +14,6 @@ import { DetailComponent } from '../detail/detail.component';
   styleUrls: ['./certificate.scss']
 })
 export class CertificateComponent implements OnInit {
-
   words?: Word[];
   loading = false;
   level = 'orange';
@@ -22,12 +23,17 @@ export class CertificateComponent implements OnInit {
   routerData?: RouterData;
 
   constructor(
+    private userService: UserService,
+    public store: StoreService,
     public dialog: MatDialog,
     private wordService: WordService,
     private snackBar: MatSnackBar,
     private route: ActivatedRoute,
   ) { }
+
   ngOnInit(): void {
+
+    this.store.setLoginStatus()
     this.route.data.subscribe(data => {
       this.routerData = data;
       this.level = data.name;
@@ -35,13 +41,37 @@ export class CertificateComponent implements OnInit {
     this.getLessons();
     this.getWordsByLesson();
   }
-  seeDetail(e: Event, word: Word) {
+  addKnow(e: Event,word: string):void{
+    e.stopPropagation();
+    this.userService.addKnowWord(this.store.username || '', word).subscribe(res => {
+      if (res.body.statusCode === 400) {
+        this.snackBar.open(res.body.message, '關閉');
+        return;
+      } else {
+        this.snackBar.open(res.body.message, '關閉');
+        this.store.getKnow();
+      }
+    });
+  }
+  removeKnow(e: Event,word: string):void{
+    e.stopPropagation();
+    this.userService.removeKnowWord(this.store.username || '', word).subscribe(res => {
+      if (res.body.statusCode === 400) {
+        this.snackBar.open(res.body.message, '關閉');
+        return;
+      } else {
+        this.snackBar.open(res.body.message, '關閉');
+        this.store.getKnow();
+      }
+    });
+  }
+  seeDetail(e: Event, word: Word):void {
     e.stopPropagation();
     this.dialog.open(DetailComponent, {
       data: word
     });
   }
-  resetSearch() {
+  resetSearch():void {
     this.searchWord = '';
     this.getWordsByLesson();
   }

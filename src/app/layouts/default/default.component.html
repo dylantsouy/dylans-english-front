@@ -50,7 +50,8 @@
         <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'"
             fixedTopGap="0" [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches">
 
-            <app-sidebar></app-sidebar>
+            <app-sidebar class="no-phone"></app-sidebar>
+            <app-sidebar class="phone" (click)="snav.toggle()"></app-sidebar>
 
         </mat-sidenav>
         <!-- ============================================================== -->
