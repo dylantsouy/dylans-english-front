@@ -1,0 +1,62 @@
+<mat-card>
+    <div class="loading" *ngIf="loading">
+        <div class="preloader">
+            <div class="spinner">
+                <div class="double-bounce1"></div>
+                <div class="double-bounce2"></div>
+            </div>
+        </div>
+    </div>
+    <mat-tab-group *ngIf="!loading">
+        <!-- Tab 1 -->
+        <mat-tab label="每日單字">
+            <mat-card-content>
+                <div class="no-blcok" *ngFor='let daily of dailyWords'>
+                    <div class="word-set">
+                        <div class="word">{{daily.word}}</div>
+                        <div class="word-speech">{{daily.speech}}</div>
+                        <div class="word-chinese">{{daily.chinese}}</div>
+                    </div>
+                    <div class="sentence-set">
+                        <div class="word-sentence">{{daily.sentence}}</div>
+                        <div class="word-sentence-chinese">{{daily.sentenceChinese}}</div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-tab>
+        <!-- End Tab 1 -->
+        <!-- Tab 2 -->
+        <mat-tab label="每日文章">
+            <mat-card-content>
+                <div class="article" *ngFor='let article of dailyArticle'>
+                    <div class="article-title">{{article.title}}</div>
+                    <!-- ============================================================== -->
+                    <!-- column -->
+                    <!-- ============================================================== -->
+                    <div class="article-english">
+                        {{article.english}}
+                    </div>
+                    <div class="article-chinese">
+                        {{article.chinese}}
+                    </div>
+                    <mat-divider></mat-divider>
+
+                    <div class="article-words" *ngIf="article.words">
+                        <div *ngFor='let word of article.words'>
+                            <div class="word-set">
+                                <div class="word">
+                                    <div class="word-english">
+                                        {{word.word}}
+                                        <span class="word-speech">{{word.speech}}</span>
+                                    </div>
+                                    <div class="word-chinese">{{word.chinese}}</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-tab>
+    </mat-tab-group>
+</mat-card>

@@ -5,6 +5,7 @@ export interface Word {
   synonym?: String;
   antonym?: String;
   note?: String;
+  note2?: String;
   _id?: String;
   word?: String;
   chinese?: String;

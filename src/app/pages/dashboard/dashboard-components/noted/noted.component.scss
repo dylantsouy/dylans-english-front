@@ -1,0 +1,22 @@
+.note-word {
+    flex-basis: 50%;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+    cursor: pointer;
+}
+.noted-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media screen and (max-width: 1000px) {
+    .note-word {
+        flex-basis: 100%;
+    }
+}
+@media screen and (max-width: 415px) {
+    .note-word {
+        padding: 9px 0;
+    }
+}

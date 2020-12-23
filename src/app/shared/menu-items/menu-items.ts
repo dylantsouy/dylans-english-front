@@ -8,12 +8,12 @@ export interface Menu {
 }
 
 const MENUITEMS = [
-  { state: 'dashboard', name: 'Dashboard', type: 'link', icon: 'av_timer' },
-  { state: 'orange', type: 'link', name: 'Orange', icon: 'child_friendly' },
-  { state: 'brown', type: 'link', name: 'Brown', icon: 'escalator_warning' },
-  { state: 'green', type: 'link', name: 'Green', icon: 'emoji_people' },
-  { state: 'blue', type: 'link', name: 'Blue', icon: 'self_improvement' },
-  { state: 'gold', type: 'link', name: 'Gold', icon: 'psychology' },
+  { state: 'dashboard', type: 'link', name: '會員中心', icon: 'av_timer' },
+  { state: 'orange', type: 'link', name: '橘色證書', icon: 'child_friendly' },
+  { state: 'brown', type: 'link', name: '棕色證書', icon: 'escalator_warning' },
+  { state: 'green', type: 'link', name: '綠色證書', icon: 'emoji_people' },
+  { state: 'blue', type: 'link', name: '藍色證書', icon: 'self_improvement' },
+  { state: 'gold', type: 'link', name: '金色證書', icon: 'psychology' },
 ];
 
 @Injectable()

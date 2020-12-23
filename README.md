@@ -1,8 +1,6 @@
 ## [Dylan's Words Demo]
 
 ### Angular + Material + Typescript + Scss + Node.js + Express + Heroku  
-  
-<b style="color:red">Project now is under construction</b>  
 
 ### What's included  
 
@@ -21,18 +19,43 @@ material-dashboard-angular
 ├── tsconfig.json
 ├── tslint.json
 ├── src
+│   │   
 │   ├── app
+│   │   │   
+│   │   ├── component
+│   │   │   ├─── addnoted
+│   │   │   ├─── detail
+│   │   │   ├─── error
+│   │   │   ├─── removenoted
+│   │   │   └── spinner
+│   │   │   
+│   │   ├── layouts
+│   │   │   └── default
+│   │   │   
+│   │   ├── pages
+│   │   │   ├─── admin
+│   │   │   ├─── certificate
+│   │   │   ├─── dashboard
+│   │   │   └── login
+│   │   │   
+│   │   ├── shared
+│   │   │   ├─── accordion
+│   │   │   ├─── constants
+│   │   │   ├─── menu-items
+│   │   │   ├─── model
+│   │   │   ├─── services
+│   │   │   ├─── validators
+│   │   │   ├─── pages-pagenator
+│   │   │   ├─── shared.module
+│   │   │   └─── store
+│   │   │   
 │   │   ├── app.component.css
 │   │   ├── app.component.html
 │   │   ├── app.component.ts
 │   │   ├── app.module.ts
 │   │   ├── app.routing.ts
-│   │   ├── material-module.ts
-│   │   ├── certificate >> 等級證書 componet
-│   │   ├── dashboard >> dashboard componet
-│   │   ├── layouts
-│   │   │   └── default
-│   │   └── shared
+│   │   └── material-module.ts
+│   │   
 │   ├── assets
 │   │   ├── styles
 │   │   │   ├── icons

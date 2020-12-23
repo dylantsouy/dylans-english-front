@@ -16,12 +16,20 @@ export class AppHeaderComponent {
     private router: Router,
   ) { }
   login(): void {
-    this.router.navigate(['/login']);
+    this.router.navigate(['/login'], { state: { type: 'login' } });
+  }
+  register(): void {
+    this.router.navigate(['/login'], { state: { type: 'register' } });
+  }
+  admin():void{
+    this.router.navigate(['/admin']);
   }
   logout(): void {
     sessionStorage.removeItem('token');
     sessionStorage.removeItem('username');
-    this.store.setLoginStatus();
-    this.snackBar.open('登出成功', '關閉');
+    this.store.setLoginStatus().then(() => {
+      this.router.navigate(['/dashboard'])
+      this.snackBar.open('登出成功', '關閉');
+    });
   }
 }

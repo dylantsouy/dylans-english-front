@@ -5,8 +5,10 @@ export interface User {
   email?: String,
   level?: String,
   avatar?: String,
+  gender?: String,
   updated?: Date,
   created?: Date,
+  loginDate?: Date,
 }
 
 export interface ErorMsg {

@@ -10,18 +10,18 @@ import { AppRoutes } from './app.routing';
 import { AppComponent } from './app.component';
 import { StoreService } from './shared/store';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS } from '@angular/material/snack-bar';
-
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { DefaultComponent } from './layouts/default/default.component';
 import { AppHeaderComponent } from './layouts/default/header/header.component';
 import { AppSidebarComponent } from './layouts/default/sidebar/sidebar.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material-module';
-import { DetailComponent } from './detail/detail.component';
-import { AddnotedComponent } from './addnoted/addnoted.component';
-
 import { SharedModule } from './shared/shared.module';
-import { SpinnerComponent } from './shared/spinner.component';
+/* component */
+import { ErrorComponent } from './components/error/error.component';
+import { DetailComponent } from './components/detail/detail.component';
+import { AddnotedComponent } from './components/addnoted/addnoted.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import { SpinnerComponent } from './shared/spinner.component';
     SpinnerComponent,
     AppSidebarComponent,
     DetailComponent,
-    AddnotedComponent
+    AddnotedComponent,
+    ErrorComponent
   ],
   imports: [
     CommonModule,
@@ -49,7 +50,7 @@ import { SpinnerComponent } from './shared/spinner.component';
       provide: LocationStrategy,
       useClass: PathLocationStrategy,
     },
-    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 2500 } },
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: { duration: 1500 } },
     StoreService
   ],
   bootstrap: [AppComponent]

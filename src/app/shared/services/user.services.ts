@@ -17,16 +17,17 @@ export class UserService {
   login(data: User): Observable<HttpResponse<any>> {
     return this.http.post<User>(SERVER_API_URL + 'api/login', data, { observe: 'response' });
   }
-
   register(data: User): Observable<HttpResponse<any>> {
     return this.http.post<User>(this.resourceUrl, data, { observe: 'response' });
   }
-
   getUser(username: string): Observable<HttpResponse<User>> {
     const data = { username: username }
     return this.http.post<any>(SERVER_API_URL + 'api/users/getUser', data, { observe: 'response' });
   }
-
+  getNotedWord(username: string): Observable<HttpResponse<any>> {
+    const data = { username: username }
+    return this.http.post<any>(SERVER_API_URL + 'api/users/getNotedWord', data, { observe: 'response' });
+  }
   getKnowWord(username: string): Observable<HttpResponse<any>> {
     const data = { username: username }
     return this.http.post<any>(SERVER_API_URL + 'api/users/getKnowWord', data, { observe: 'response' });

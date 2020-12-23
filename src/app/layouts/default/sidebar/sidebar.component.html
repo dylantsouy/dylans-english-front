@@ -3,7 +3,12 @@
 <!-- ============================================================== -->
 <div class="user-profile" style="background: url(assets/images/background/user-info.jpg) no-repeat;">
   <!-- User profile image -->
-  <div class="profile-img"> <img src="assets/images/users/man1.png" alt="user"> </div>
+
+  <img *ngIf="!store.user" src="assets/images/users/man.png" alt="user" class="profile-img">
+  <img *ngIf="store.user && store.user.gender === 'male'" src="assets/images/users/male.png" alt="user"
+    class="profile-img">
+  <img *ngIf="store.user && store.user.gender === 'female'" src="assets/images/users/female.png" alt="user"
+    class="profile-img">
   <!-- User profile text-->
   <!-- ============================================================== -->
   <!-- Profile - style you can find in header.scss -->

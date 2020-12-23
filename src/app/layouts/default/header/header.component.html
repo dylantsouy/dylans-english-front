@@ -1,15 +1,18 @@
 <!-- ============================================================== -->
 <!-- Profile - style you can find in header.scss -->
 <!-- ============================================================== -->
-<button mat-raised-button (click)="login()" color="warn" *ngIf="!store.token">登入</button>
-<button mat-raised-button (click)="logout()" color="warn" *ngIf="store.token">登出</button>
-<!-- <button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5"> <img src="assets/images/users/man1.png" alt="user"
-        class="profile-pic"> </button>
-<mat-menu #profile="matMenu" class="mymegamenu">
-    <button mat-menu-item>
-        <mat-icon>account_box</mat-icon> Profile
-    </button>
-    <button mat-menu-item>
-        <mat-icon>exit_to_app</mat-icon> Sign Out
-    </button>
-</mat-menu> -->
+
+<button mat-raised-button (click)="admin()" *ngIf="store.token && store.user && store.user.level === 'admin'">
+    <span class="material-icons rwd-icon">
+        admin_panel_settings
+    </span> 管理
+</button>
+<button mat-raised-button (click)="login()" *ngIf="!store.token">
+    <span class="material-icons rwd-icon">
+        login
+    </span>
+    登入
+</button>
+<button mat-raised-button (click)="register()" color="warn" class="register" *ngIf="!store.token"
+    style="margin-left: 10px;">註冊</button>
+<button mat-raised-button style="margin-left: 10px;" color="warn" (click)="logout()" *ngIf="store.token">登出</button>

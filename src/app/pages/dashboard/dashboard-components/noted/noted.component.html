@@ -1,0 +1,29 @@
+<mat-card>
+  <div class="p-20 bg-info position-relative">
+    <h4 class="card-title text-white m-0">備註單字</h4>
+    <h6 class="card-subtitle text-white m-0 op-5">紀錄您備註的單字</h6>
+    <button mat-mini-fab color="accent" class="add-noted" *ngIf="store.token" (click)="addNoted()"
+      matTooltipPosition="right" matTooltip="新增備註單字" matTooltipClass="tooltip-primary">+</button>
+  </div>
+  <div class="message-box noted-box p-20">
+    <div class="message-widget noted-widget noted-wrapper" *ngIf="store.user && store.user.notedWords">
+      <!-- Message -->
+      <a class="note-word" *ngFor='let noted of store.user.notedWords' (click)="seeDetail(noted.word)">
+        <div class="word-set">
+          <div class="word">{{noted.word}}</div>
+          <div class="word-speech">{{noted.speech}}</div>
+          <div class="word-chinese">{{noted.chinese}}</div>
+        </div>
+        <button mat-mini-fab color="warn" (click)="removeNoted($event,noted.word)" matTooltipPosition="right"
+          matTooltip="刪除備註單字" matTooltipClass="tooltip-accent">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </a>
+    </div>
+    <div class="message-widget noted-widget"
+      *ngIf="!store.user || (store.user && store.user.notedWords && !store.user.notedWords.length)">
+      <!-- Message -->
+      尚無資料
+    </div>
+  </div>
+</mat-card>

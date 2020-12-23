@@ -1,0 +1,30 @@
+<div class="admin-outer">
+  <div class="model-body" *ngIf="!loading">
+    <div class="link">
+      <a routerLink="/adminword">單字管理 <span class="material-icons">
+          chevron_right
+        </span>
+      </a>
+      <a routerLink="/admindailyword">每日單字管理 <span class="material-icons">
+          chevron_right
+        </span>
+      </a>
+      <a routerLink="/admindailyarticle">每日文章管理 <span class="material-icons">
+          chevron_right
+        </span>
+      </a>
+      <a routerLink="/adminuser">會員管理 <span class="material-icons">
+          chevron_right
+        </span>
+      </a>
+    </div>
+  </div>
+  <div class="loading" *ngIf="loading">
+      <div class="preloader">
+          <div class="spinner">
+              <div class="double-bounce1"></div>
+              <div class="double-bounce2"></div>
+          </div>
+      </div>
+  </div>
+</div>

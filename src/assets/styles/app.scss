@@ -10,6 +10,7 @@ Global Styles
 body {
   font-family: $bodyfont;
   margin: 0;
+  width: 100%;
   overflow-x: hidden;
   color: $bodytext;
   font-weight: 300;
@@ -17,6 +18,7 @@ body {
 }
 
 html {
+  width: 100%;
   position: relative;
   min-height: 100%;
   background: $white;
@@ -168,7 +170,6 @@ html body {
 }
 
 .no-wrap {
-
   td,
   th {
     white-space: nowrap;
@@ -569,7 +570,7 @@ Text Colors
 }
 
 .text-success {
-  color: $success !important;
+  color: $blue !important;
 }
 
 .text-info {
@@ -647,7 +648,7 @@ Background Colors
 }
 
 .bg-info {
-  background-color: $info !important;
+  background-color: $blue !important;
 }
 
 .bg-warning {
@@ -805,6 +806,7 @@ Mat card
   }
 
   .mat-card-image {
+    height: 233px;
     width: calc(100% + 0px);
     margin: 0 0px 0px 0px;
   }
@@ -964,7 +966,6 @@ list inline
     }
   }
 }
-
 .add-noted {
   position: absolute !important;
   right: 17px;
@@ -999,6 +1000,7 @@ list inline
   }
 
   .word-chinese {
+    transform: translateY(2px);
     font-size: 14px;
     align-self: center;
   }
@@ -1065,12 +1067,180 @@ list inline
     margin: 0 5px;
   }
 }
+.mat-table {
+  width: 100%;
+  overflow-x: scroll;
+}
+
+button {
+  margin: 10px;
+}
+td.mat-cell,
+td.mat-footer-cell,
+th.mat-header-cell {
+  padding: 0 5px;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+}
+.mat-table {
+  width: 100%;
+}
+.table-area {
+  width: 100%;
+}
+.model-body {
+  width: 100%;
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+  background-color: #fff;
+  position: relative;
+  button {
+    margin: 5px;
+  }
+}
+.model-body .mat-form-field-wrapper {
+  margin: 10px !important;
+}
+.admin-outer {
+  width: 100%;
+  overflow-x: hidden;
+}
+.action-area {
+  width: 100%;
+  margin-top: 20px;
+  padding: 10px;
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14),
+    0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+  border-radius: 0 0 5px 5px;
+  background-color: #fff;
+  .confirm-text {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    span {
+      display: inline-block;
+      margin: 0 5px;
+    }
+  }
+  .form-area {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    .mat-form-field {
+      margin: 10px;
+      flex-basis: 15%;
+      flex-grow: 1;
+    }
+  }
+}
+button {
+  .rwd-icon {
+    font-size: 16px;
+  }
+}
+.click-td {
+  cursor: pointer;
+  color: $blue;
+}
+.button-area {
+  button {
+    margin: 5px;
+  }
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+.search-area {
+  padding: 10px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  .mat-focus-indicator {
+    padding: 0 5px;
+    height: 35px;
+    line-height: 35px;
+    min-width: 50px;
+  }
+
+  .each-input {
+    display: flex;
+    align-items: center;
+
+    .label {
+      white-space: nowrap;
+      margin: 0 10px 0 0;
+    }
+  }
+}
+.mat-snack-bar-container {
+  white-space: nowrap !important;
+  color: #fff !important;
+  position: absolute !important;
+  margin: auto !important;
+  top: 0 !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  height: 47px !important;
+  width: 23vw !important;
+  min-width: 250px !important;
+}
 .mat-simple-snackbar-action {
-  color: #98a7fa;
+  color: #fff;
 }
-.phone{
+.phone {
+  display: none;
+}
+.no-phone {
+  display: unset;
+}
+.tooltip-primary {
+  background-color: #3f51b5;
+}
+.tooltip-accent {
+  background-color: #e91e63;
+}
+.tooltip-orange {
+  background-color: rgb(141, 38, 6);
+}
+.dialog-actions {
+  margin: 10px 0;
+}
+.mat-toolbar.mat-primary {
+  background-color: $blue;
+}
+.mat-dialog-container {
+  overflow: hidden !important;
+  padding: 15px 26px !important;
+  border-radius: 15px !important;
+}
+@media screen and (max-width: 400px) {
+  .word-set .word {
+    font-size: 20px;
+  }
+  .article-english {
+    font-size: 13px;
+  }
+  .word-chinese {
+    font-size: 18px !important;
+  }
+  .article-title {
+    font-size: 16px;
+  }
+  .article-chinese {
+    font-size: 13px;
+  }
+  .tooltip-primary {
     display: none;
-}
-.no-phone{
-    display: unset;
+  }
+  .sentence-set {
+    .word-sentence {
+      font-size: 13px !important;
+    }
+
+    .word-sentence-chinese {
+      font-size: 13px !important;
+    }
+  }
 }

@@ -1,0 +1,234 @@
+<div class="admin-outer">
+  <div class="model-body">
+    <div class="table-area">
+      <div class="search-area">
+        <mat-form-field>
+          <mat-label>
+            <mat-icon>search</mat-icon><span>單字</span>
+          </mat-label>
+          <input placeholder="請輸入" matInput [(ngModel)]="filterWord" (keyup.enter)="applyFilter()">
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>
+            <mat-icon>search</mat-icon><span>等級</span>
+          </mat-label>
+          <mat-select [(ngModel)]="filterLevel" (selectionChange)="applyFilter()">
+            <mat-option value='orange'>橘色</mat-option>
+            <mat-option value='brown'>棕色</mat-option>
+            <mat-option value='green'>綠色</mat-option>
+            <mat-option value='blue'>藍色</mat-option>
+            <mat-option value='gold'>金色</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="applyFilter()">查詢</button>
+        <button mat-stroked-button color="primary" (click)="clearFilter()">清空</button>
+      </div>
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        <!-- word Column -->
+        <ng-container matColumnDef="word">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>單字</th>
+          <td (click)="edit(element)" mat-cell *matCellDef="let element" class="click-td">{{element.word}}</td>
+        </ng-container>
+        <!-- level Column -->
+        <ng-container matColumnDef="speech">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>詞性</th>
+          <td mat-cell *matCellDef="let element">{{element.speech}}</td>
+        </ng-container>
+        <!-- level Column -->
+        <ng-container matColumnDef="level">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>等級</th>
+          <td mat-cell *matCellDef="let element">{{element.level}}</td>
+        </ng-container>
+        <!-- lesson Column -->
+        <ng-container matColumnDef="lesson">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>課程</th>
+          <td mat-cell *matCellDef="let element">{{element.lesson}}</td>
+        </ng-container>
+        <!-- lesson Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>操作</th>
+          <td mat-cell *matCellDef="let element" (click)="deleteAction(element.word)" class="click-td">刪除</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">查無資料</td>
+        </tr>
+      </table>
+      <mat-paginator [length]="currentPage.length" [pageSizeOptions]="pageSizeOptions" showFirstLastButtons>
+      </mat-paginator>
+    </div>
+  </div>
+  <div class="action-area">
+    <div class="word-area" *ngIf="type === 'delete'">
+      <mat-card-title>刪除單字</mat-card-title>
+      <mat-card-subtitle>Delete Word</mat-card-subtitle>
+      <div>
+        <div class="confirm-text">確定刪除<span style="color:orangered">{{ actionWord }}</span>?</div>
+        <div class="button-area">
+          <button (click)="delete()" mat-raised-button color="primary">刪除</button>
+          <button (click)="new()" mat-raised-button color="warn">取消</button>
+        </div>
+      </div>
+    </div>
+    <div class="word-area" *ngIf="type === 'add'">
+      <mat-card-title>新增單字</mat-card-title>
+      <mat-card-subtitle>New Words</mat-card-subtitle>
+      <div class="form-area">
+        <mat-form-field appearance="legacy">
+          <mat-label>單字</mat-label>
+          <input matInput [(ngModel)]="word">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>中文</mat-label>
+          <input matInput [(ngModel)]="chinese">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>詞性</mat-label>
+          <mat-select [(ngModel)]="speech">
+            <mat-option value='n'>n 名詞</mat-option>
+            <mat-option value='v'>v 動詞</mat-option>
+            <mat-option value='adj'>adj 形容詞</mat-option>
+            <mat-option value='adv'>adv 副詞</mat-option>
+            <mat-option value='prep'>prep 介係詞</mat-option>
+            <mat-option value='pron'>pron 代名詞</mat-option>
+            <mat-option value='conj'>conj 連接詞</mat-option>
+            <mat-option value='int'>int 感歎詞</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>英文句子</mat-label>
+          <input matInput [(ngModel)]="sentence">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>中文句子</mat-label>
+          <input matInput [(ngModel)]="sentenceChinese">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>片語</mat-label>
+          <input matInput [(ngModel)]="phrase">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>衍生詞</mat-label>
+          <input matInput [(ngModel)]="derivative">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>相似詞</mat-label>
+          <input matInput [(ngModel)]="synonym">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>相反詞</mat-label>
+          <input matInput [(ngModel)]="antonym">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>備註1</mat-label>
+          <input matInput [(ngModel)]="note">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>備註2</mat-label>
+          <input matInput [(ngModel)]="note2">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>課程</mat-label>
+          <mat-select [(ngModel)]="lesson">
+            <mat-option *ngFor="let i of arr" [value]='i'>{{i}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>等級</mat-label>
+          <mat-select [(ngModel)]="level">
+            <mat-option value='orange'>orange</mat-option>
+            <mat-option value='brown'>brown</mat-option>
+            <mat-option value='green'>green</mat-option>
+            <mat-option value='blue'>blue</mat-option>
+            <mat-option value='gold'>gold</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="button-area">
+        <button (click)="post()" mat-raised-button color="primary">提交</button>
+        <button (click)="reset()" mat-raised-button color="warn">重置</button>
+      </div>
+    </div>
+    <div class="word-area" *ngIf="type === 'edit'">
+      <mat-card-title>編輯單字</mat-card-title>
+      <mat-card-subtitle>Edit Words</mat-card-subtitle>
+      <div class="form-area">
+        <mat-form-field appearance="legacy">
+          <mat-label>單字</mat-label>
+          <input matInput disabled [(ngModel)]="editData.word">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>中文</mat-label>
+          <input matInput [(ngModel)]="editData.chinese">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>詞性</mat-label>
+          <mat-select [(ngModel)]="editData.speech">
+            <mat-option value='n'>n 名詞</mat-option>
+            <mat-option value='v'>v 動詞</mat-option>
+            <mat-option value='adj'>adj 形容詞</mat-option>
+            <mat-option value='adv'>adv 副詞</mat-option>
+            <mat-option value='prep'>prep 介係詞</mat-option>
+            <mat-option value='pron'>pron 代名詞</mat-option>
+            <mat-option value='conj'>conj 連接詞</mat-option>
+            <mat-option value='int'>int 感歎詞</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>英文句子</mat-label>
+          <input matInput [(ngModel)]="editData.sentence">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>中文句子</mat-label>
+          <input matInput [(ngModel)]="editData.sentenceChinese">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>片語</mat-label>
+          <input matInput [(ngModel)]="editData.phrase">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>衍生詞</mat-label>
+          <input matInput [(ngModel)]="editData.derivative">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>相似詞</mat-label>
+          <input matInput [(ngModel)]="editData.synonym">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>相反詞</mat-label>
+          <input matInput [(ngModel)]="editData.antonym">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>備註1</mat-label>
+          <input matInput [(ngModel)]="editData.note">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>備註2</mat-label>
+          <input matInput [(ngModel)]="editData.note2">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>課程</mat-label>
+          <mat-select [(ngModel)]="editData.lesson">
+            <mat-option *ngFor="let i of arr" [value]='i'>{{i}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>等級</mat-label>
+          <mat-select [(ngModel)]="editData.level">
+            <mat-option value='orange'>orange</mat-option>
+            <mat-option value='brown'>brown</mat-option>
+            <mat-option value='green'>green</mat-option>
+            <mat-option value='blue'>blue</mat-option>
+            <mat-option value='gold'>gold</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="button-area">
+        <button (click)="put()" mat-raised-button color="primary">提交</button>
+        <button (click)="new()" mat-raised-button color="warn">取消</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+.error-inner {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    img {
+        width: 50%;
+        height: 50%;
+    }
+    h2 {
+        font-weight: 600;
+        font-size: 46px;
+    }
+    a {
+        font-size: 18px;
+        color: #1c85c2;
+    }
+}
+@media (max-width: 767px) {
+    .error-inner {
+        margin-top: 70px;
+        img {
+            width: 70%;
+            height: 70%;
+        }
+        h2 {
+            font-size: 32px;
+        }
+        a {
+            font-size: 14px;
+        }
+    }
+}

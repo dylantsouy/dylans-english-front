@@ -1,0 +1,291 @@
+.login-outer {
+  height: 100%;
+
+  .login-area {
+    border-radius: 10px;
+    margin: auto;
+    max-width: 600px;
+    height: 100%;
+    background: url("../../../assets/images/background/login-bg2.gif") no-repeat center;
+    background-size: cover;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+
+    .login-html {
+      border-radius: 10px;
+      margin: auto;
+      width: 100%;
+      height: 100%;
+      padding: 90px 40px 40px;
+      background: rgba(117, 116, 113, 0.5);
+    }
+    .modal-title {
+      color: #fff;
+      text-transform: uppercase;
+      font-size: 22px;
+      margin-right: 15px;
+      padding-bottom: 5px;
+      margin: 0 15px 10px 0;
+      display: inline-block;
+      border-bottom: 3px solid rgb(141, 38, 6);
+    }
+
+    .hr {
+      height: 2px;
+      margin: 100px 0 50px 0;
+      background: rgba(255, 255, 255, 0.5);
+    }
+
+    .fail {
+      line-height: 0;
+      height: 0;
+      font-size: 14px;
+    }
+
+    .foot-lnk {
+      text-align: center;
+      color: #fbfbfb;
+    }
+
+    .register {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      color: #fbfbfb;
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 15px;
+      &:hover {
+        color: #f3f3f3;
+        text-decoration: underline;
+      }
+    }
+    input {
+      width: 100%;
+      border: none;
+      padding: 15px 20px;
+      border-radius: 25px;
+      margin: 20px 0;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+    }
+    .hide-pass {
+      position: absolute;
+      cursor: pointer;
+      right: 5px;
+      top: 57%;
+      transform: translateY(-50%);
+      color: #fbfbfb;
+
+      .mat-icon {
+        font-size: 16px;
+      }
+    }
+    .button-area {
+      display: flex;
+      justify-content: center;
+      margin-top: 50px;
+    }
+
+    .login-btn {
+      background: lighten(#b5823f, 3%);
+      border: 1px solid darken(#b5823f, 4%);
+      font-weight: 900;
+      letter-spacing: 1px;
+      transition: all 150ms linear;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+      margin-right: 45px;
+      border: 1px solid rgba(#000, 0.05);
+      color: #fff;
+      cursor: pointer;
+      padding: 10px 30px;
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+    .close-btn {
+      background: lighten(#fff, 3%);
+      border: 1px solid darken(#fff, 4%);
+      font-weight: 900;
+      letter-spacing: 1px;
+      transition: all 150ms linear;
+      border-radius: 5px;
+      border: none;
+      font-size: 16px;
+      color: #333;
+      cursor: pointer;
+      padding: 10px 30px;
+      &:hover {
+        opacity: 0.9;
+      }
+    }
+
+    .label {
+      color: #fff;
+      font-size: 14px;
+    }
+
+    .modal-body {
+      padding: 0;
+      padding-top: 30px;
+
+      .btn-dark-pc {
+        margin-top: 3rem;
+      }
+    }
+
+    .modal-header {
+      background-color: #eee;
+
+      h4 {
+        font-size: 16px;
+      }
+    }
+  }
+  .register-area {
+    margin: auto;
+    max-width: 600px;
+    height: 100%;
+    background: url("../../../assets/images/background/login-bg.gif") no-repeat center;
+    background-size: cover;
+    box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+    .hr {
+      margin: 30px 0 30px 0;
+    }
+    .button-area {
+      margin-top: 25px;
+    }
+    .err {
+      position: absolute;
+      right: 10px;
+      bottom: -15px;
+      font-weight: 600;
+      font-size: 14px;
+      color: red;
+      text-shadow: 0 0 1px #333;
+    }
+    ::ng-deep .mat-select-trigger {
+      width: 100%;
+      border: none;
+      font-size: 16px;
+      padding: 15px 20px;
+      border-radius: 25px;
+      margin: 10px 0;
+      background: rgba(255, 255, 255, 0.9);
+      .mat-select-value-text,
+      .mat-select-arrow {
+        color: #333;
+      }
+    }
+    input {
+      margin: 10px 0;
+    }
+  }
+  .form-set {
+    position: relative;
+  }
+  .err {
+    position: absolute;
+    right: 10px;
+    bottom: -5px;
+    font-weight: 600;
+    font-size: 14px;
+    color: red;
+    text-shadow: 0 0 1px #333;
+  }
+}
+@media screen and (max-width: 500px) {
+  .login-outer {
+    .login-area {
+      .modal-title {
+        font-size: 17px;
+      }
+      .fail {
+        font-size: 13px;
+      }
+
+      input {
+        padding: 10px 15px;
+      }
+      .hide-pass {
+        .mat-icon {
+          font-size: 14px;
+        }
+      }
+      .login-btn {
+        font-size: 14px;
+      }
+
+      .login-btn {
+        font-size: 14px;
+        padding: 10px 25px;
+      }
+      .close-btn {
+        font-size: 14px;
+        padding: 10px 25px;
+      }
+      .label {
+        font-size: 12px;
+      }
+      .hr {
+        margin: 40px 0 30px 0;
+      }
+      .login-html {
+        padding: 50px 30px 30px;
+      }
+    }
+    .register-area {
+      input {
+        padding: 5px 10px;
+        margin: 5px 0;
+      }
+      ::ng-deep .mat-select-trigger {
+        padding: 5px 10px;
+        margin: 5px 0;
+        font-size: 14px;
+      }
+      .err {
+        bottom: -18px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 416px) {
+  .login-outer {
+    .login-area {
+      .login-btn {
+        font-size: 12px;
+        padding: 10px 20px;
+        margin-top: 0;
+      }
+      .close-btn {
+        font-size: 12px;
+        padding: 10px 20px;
+        margin-top: 0;
+      }
+      .hr {
+        margin: 30px 0 20px 0;
+      }
+      .login-html {
+        padding: 50px 20px 20px;
+      }
+    }
+    .register-area {
+      .hr {
+        margin: 20px 0 20px 0;
+      }
+    }
+  }
+}
+@media screen and (max-width: 374px) {
+  .login-outer {
+    .login-area {
+      .login-html {
+        padding: 50px 20px 20px;
+      }
+    }
+  }
+}

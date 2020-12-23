@@ -14,16 +14,16 @@ export class WordService {
 
   constructor(private http: HttpClient) { }
 
-  get(): Observable<HttpResponse<Word[]>> {
-    return this.http.get<Word[]>(this.resourceUrl, { observe: 'response' });
+  get(req: any): Observable<HttpResponse<any>> {
+    return this.http.get<any>(this.resourceUrl, { params: req, observe: 'response' });
   }
 
   post(data: Word): Observable<HttpResponse<Word>> {
     return this.http.post<Word>(this.resourceUrl, data, { observe: 'response' });
   }
 
-  put(_id: string, data: Word): Observable<HttpResponse<Word>> {
-    return this.http.put<Word>(`${this.resourceUrl}/${_id}`, data, { observe: 'response' });
+  put(word: string, data: Word): Observable<HttpResponse<Word>> {
+    return this.http.put<Word>(`${this.resourceUrl}/${word}`, data, { observe: 'response' });
   }
 
   delete(data: string): Observable<HttpResponse<any>> {
