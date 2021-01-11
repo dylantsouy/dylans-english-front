@@ -1,0 +1,122 @@
+<div class="admin-outer">
+  <div class="model-body">
+    <div class="table-area">
+      <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+        <!-- word Column -->
+        <ng-container matColumnDef="word">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>英文</th>
+          <td (click)="edit(element)" mat-cell *matCellDef="let element" class="click-td">{{element.word}}</td>
+        </ng-container>
+        <!-- chinese Column -->
+        <ng-container matColumnDef="chinese">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>中文</th>
+          <td mat-cell *matCellDef="let element">{{element.chinese}}</td>
+        </ng-container>
+        <!-- speech Column -->
+        <ng-container matColumnDef="speech">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>中文</th>
+          <td mat-cell *matCellDef="let element">{{element.speech}}</td>
+        </ng-container>
+        <!-- showDate Column -->
+        <ng-container matColumnDef="showDate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>時間</th>
+          <td mat-cell *matCellDef="let element">{{element.showDate}}</td>
+        </ng-container>
+        <!-- action Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>操作</th>
+          <td mat-cell *matCellDef="let element" (click)="deleteAction(element._id,element.word)" class="click-td">刪除</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4">查無資料</td>
+        </tr>
+      </table>
+      <mat-paginator [length]="currentPage.length" [pageSizeOptions]="pageSizeOptions" showFirstLastButtons>
+      </mat-paginator>
+    </div>
+  </div>
+  <div class="action-area">
+    <div class="word-area" *ngIf="type === 'delete'">
+      <mat-card-title>刪除單字</mat-card-title>
+      <mat-card-subtitle>Delete Word</mat-card-subtitle>
+      <div>
+        <div class="confirm-text">確定刪除<span style="color:orangered">{{actionWord}}</span>?</div>
+        <div class="button-area">
+          <button (click)="delete()" mat-raised-button color="primary">刪除</button>
+          <button (click)="new()" mat-raised-button color="warn">取消</button>
+        </div>
+      </div>
+    </div>
+    <div class="word-area" *ngIf="type === 'add'">
+      <mat-card-title>新增單字</mat-card-title>
+      <mat-card-subtitle>New Word</mat-card-subtitle>
+      <div class="form-area">
+        <mat-form-field appearance="legacy">
+          <mat-label>英文</mat-label>
+          <input matInput [(ngModel)]="word">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>中文</mat-label>
+          <input matInput [(ngModel)]="chinese">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>詞性</mat-label>
+          <input matInput [(ngModel)]="speech">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>句子</mat-label>
+          <input matInput [(ngModel)]="sentence">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>中文句子</mat-label>
+          <input matInput [(ngModel)]="sentenceChinese">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>時間</mat-label>
+          <input matInput [(ngModel)]="showDate">
+        </mat-form-field>
+      </div>
+      <div class="button-area">
+        <button (click)="post()" mat-raised-button color="primary">提交</button>
+        <!-- <button (click)="reset()" mat-raised-button color="warn">重置</button> -->
+      </div>
+    </div>
+    <div class="word-area" *ngIf="type === 'edit'">
+      <mat-card-title>編輯單字</mat-card-title>
+      <mat-card-subtitle>Edit Words</mat-card-subtitle>
+      <div class="form-area">
+        <mat-form-field appearance="legacy">
+          <mat-label>英文</mat-label>
+          <input matInput [(ngModel)]="editData.word">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>中文</mat-label>
+          <input matInput [(ngModel)]="editData.chinese">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>詞性</mat-label>
+          <input matInput [(ngModel)]="editData.speech">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>句子</mat-label>
+          <input matInput [(ngModel)]="editData.sentence">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>中文句子</mat-label>
+          <input matInput [(ngModel)]="editData.sentenceChinese">
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <mat-label>時間</mat-label>
+          <input matInput [(ngModel)]="editData.showDate">
+        </mat-form-field>
+      </div>
+      <div class="button-area">
+        <button (click)="put()" mat-raised-button color="primary">提交</button>
+        <button (click)="new()" mat-raised-button color="warn">取消</button>
+      </div>
+    </div>
+  </div>
+</div>

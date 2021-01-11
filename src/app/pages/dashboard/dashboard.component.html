@@ -1,4 +1,3 @@
-
 <!-- ============================================================== -->
 <!-- Image Card row-->
 <!-- ============================================================== -->
@@ -11,35 +10,37 @@
         </div>
     </div>
 </div>
-<div fxLayout="row wrap" *ngIf="!loading">
-    <!-- Card column -->
-    <div fxFlex.gt-lg="33" fxFlex.gt-md="40" fxFlex.gt-xs="100" fxFlex="100">
+<div class="outer" *ngIf="!loading">
+    <div fxLayout="row wrap">
+        <!-- Card column -->
+        <div fxFlex.gt-lg="33" fxFlex.gt-md="40" fxFlex.gt-xs="100" fxFlex="100">
 
-        <app-user [store]="store"></app-user>
-    </div>
-    <!-- Card column -->
-    <div fxFlex.gt-lg="67" fxFlex.gt-md="60" fxFlex.gt-xs="100" fxFlex="100">
+            <app-user [store]="store"></app-user>
+        </div>
+        <!-- Card column -->
+        <div fxFlex.gt-lg="67" fxFlex.gt-md="60" fxFlex.gt-xs="100" fxFlex="100">
 
-        <app-daily [store]="store"></app-daily>
+            <app-daily [store]="store"></app-daily>
+        </div>
     </div>
-</div>
-<!-- ============================================================== -->
-<!-- Simple four boxes Row -->
-<!-- ============================================================== -->
-<div fxLayout="row wrap">
-    <!-- column -->
-    <div fxFlex.gt-lg="66" fxFlex.gt-md="66" fxFlex.gt-xs="100" fxFlex="100">
-        <app-overview [store]="store"></app-overview>
+    <!-- ============================================================== -->
+    <!-- Simple four boxes Row -->
+    <!-- ============================================================== -->
+    <div fxLayout="row wrap">
+        <!-- column -->
+        <div fxFlex.gt-lg="66" fxFlex.gt-md="66" fxFlex.gt-xs="100" fxFlex="100">
+            <app-overview [store]="store"></app-overview>
+        </div>
+        <!-- column -->
+        <div fxFlex.gt-lg="34" fxFlex.gt-md="34" fxFlex.gt-xs="100" fxFlex="100">
+            <app-level [store]="store"></app-level>
+        </div>
     </div>
-    <!-- column -->
-    <div fxFlex.gt-lg="34" fxFlex.gt-md="34" fxFlex.gt-xs="100" fxFlex="100">
-        <app-level [store]="store"></app-level>
-    </div>
-</div>
 
-<div fxLayout="row wrap">
-    <!-- column -->
-    <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
-        <app-noted [store]="store"></app-noted>
+    <div fxLayout="row wrap">
+        <!-- column -->
+        <div fxFlex.gt-lg="100" fxFlex.gt-md="100" fxFlex.gt-xs="100" fxFlex="100">
+            <app-noted [store]="store"></app-noted>
+        </div>
     </div>
 </div>

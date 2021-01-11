@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UserService } from '../../shared/services/user.services';
 import { Router } from '@angular/router';
@@ -10,7 +10,7 @@ import { EmailValidator, AccountValidator, PasswordValidator } from '../../share
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
   account?: string;
   password?: string;
   type = 'login';
@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
   hide = true;
   re_hide = true;
   show = false;
+  loading = false;
 
   constructor(
     public store: StoreService,
@@ -36,13 +37,29 @@ export class LoginComponent implements OnInit {
     private router: Router,
   ) { }
 
-  ngOnInit(): void { 
-    if(history.state.type === 'register'){
+  ngOnInit(): void {
+    this.loading = true;
+
+    if (history.state.type === 'register') {
       this.type = 'register';
-    }else{
+    } else {
       this.type = 'login';
     }
+    this.store.getUser().then(() => {
+      if (this.store.token) {
+        this.router.navigate(['/dashboard'])
+        this.snackBar.open('您已經登入', '關閉');
+        this.loading = false;
+      } 
+    })
+    this.loading = false;
   }
+
+  ngOnDestroy(): void {
+    history.state.type = ''
+    this.type = ''
+  }
+
   goRegister(): void {
     this.type = 'register';
     this.account = '';

@@ -2,17 +2,19 @@
 <!-- Profile - style you can find in header.scss -->
 <!-- ============================================================== -->
 
-<button mat-raised-button (click)="admin()" *ngIf="store.token && store.user && store.user.level === 'admin'">
+<button mat-raised-button (click)="admin()"
+    *ngIf="store.token && store.user && store.user.level === 'admin' && showBtn">
     <span class="material-icons rwd-icon">
         admin_panel_settings
     </span> 管理
 </button>
-<button mat-raised-button (click)="login()" *ngIf="!store.token">
+<button mat-raised-button (click)="login()" *ngIf="!store.token && showBtn">
     <span class="material-icons rwd-icon">
         login
     </span>
     登入
 </button>
-<button mat-raised-button (click)="register()" color="warn" class="register" *ngIf="!store.token"
+<button mat-raised-button (click)="register()" color="warn" class="register" *ngIf="!store.token && showBtn"
     style="margin-left: 10px;">註冊</button>
-<button mat-raised-button style="margin-left: 10px;" color="warn" (click)="logout()" *ngIf="store.token">登出</button>
+<button mat-raised-button style="margin-left: 10px;" color="warn" (click)="logout()"
+    *ngIf="store.token && showBtn">登出</button>

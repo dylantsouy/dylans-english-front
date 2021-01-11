@@ -49,7 +49,7 @@ material-dashboard-angular
 │   │   │   ├─── shared.module
 │   │   │   └─── store
 │   │   │   
-│   │   ├── app.component.css
+│   │   ├── app.component.scss
 │   │   ├── app.component.html
 │   │   ├── app.component.ts
 │   │   ├── app.module.ts

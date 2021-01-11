@@ -40,7 +40,6 @@
                         {{article.chinese}}
                     </div>
                     <mat-divider></mat-divider>
-
                     <div class="article-words" *ngIf="article.words">
                         <div *ngFor='let word of article.words'>
                             <div class="word-set">
@@ -58,5 +57,35 @@
                 </div>
             </mat-card-content>
         </mat-tab>
+        <!-- End Tab 2 -->
+        <!-- Tab 3 -->
+        <mat-tab label="每日句子">
+            <mat-card-content>
+                <div class="sentence" *ngFor='let sentence of dailySentence'>
+                    <div class="sentence-english">
+                        {{sentence.english}}
+                    </div>
+                    <div class="sentence-chinese">
+                        {{sentence.chinese}}
+                    </div>
+                    <mat-divider></mat-divider>
+                    <div class="sentence-words" *ngIf="sentence.words">
+                        <div *ngFor='let word of sentence.words'>
+                            <div class="word-set">
+                                <div class="word">
+                                    <div class="word-english">
+                                        {{word.word}}
+                                        <span class="word-speech">{{word.speech}}</span>
+                                    </div>
+                                    <div class="word-chinese">{{word.chinese}}</div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-tab>
+        <!-- End Tab 3 -->
     </mat-tab-group>
 </mat-card>

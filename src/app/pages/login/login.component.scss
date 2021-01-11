@@ -7,12 +7,13 @@
     max-width: 600px;
     height: 100%;
     background: url("../../../assets/images/background/login-bg2.gif") no-repeat center;
+    background-color: rgba(0, 0, 0, 0.4);
     background-size: cover;
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 
     .login-html {
       border-radius: 10px;
-      margin: auto;
+      margin: 50px auto;
       width: 100%;
       height: 100%;
       padding: 90px 40px 40px;
@@ -270,6 +271,7 @@
         margin: 30px 0 20px 0;
       }
       .login-html {
+        margin: 20px auto;
         padding: 50px 20px 20px;
       }
     }
@@ -284,6 +286,7 @@
   .login-outer {
     .login-area {
       .login-html {
+        margin: 0px auto;
         padding: 50px 20px 20px;
       }
     }

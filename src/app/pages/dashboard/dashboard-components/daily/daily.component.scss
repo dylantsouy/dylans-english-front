@@ -1,32 +1,64 @@
-::ng-deep .mat-tab-body-wrapper{
+::ng-deep .mat-tab-body-wrapper {
     min-height: 483px !important;
 }
-.article{
-    .ng-star-inserted{
+.article,
+.sentence {
+    .ng-star-inserted {
         margin-right: 20px;
     }
-    .article-words{
+    .sentence-chinese{
+        margin-bottom: 10px !important;
+    }
+    .article-words,
+    .sentence-words {
+        margin-top: 20px !important;
         width: 100%;
         display: flex;
         flex-wrap: wrap;
     }
-    .word{
+    .word {
         display: flex;
         flex-direction: column;
         align-items: flex-start;
         justify-content: center;
         margin-right: 5px;
-        .word-english{
+        .word-english {
             width: 100%;
         }
-        .word-chinese{
+        .word-chinese {
             width: 100%;
             color: #777;
         }
     }
-    .word-speech{
+    .word-speech {
         line-height: 0;
         padding: 0px 3px;
         margin: 0;
+    }
+}
+
+@media screen and (max-width: 416px) {
+    .mat-tab-label {
+        padding: 0 5px;
+    }
+    .article,
+    .sentence {
+        .sentence-english {
+            font-size: 13px;
+        }
+        .sentence-chinese {
+            font-size: 13px;
+        }
+        .word-set {
+            .word {
+                font-size: 14px;
+            }
+            .word-speech {
+                font-size: 12px !important;
+            }
+            .word-chinese {
+                font-size: 14px !important;
+            }
+        }
     }
 }

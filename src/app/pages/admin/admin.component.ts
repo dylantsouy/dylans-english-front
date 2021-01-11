@@ -26,6 +26,10 @@ export class AdminComponent {
       }
       this.loading = false;
     })
+    if (!this.store.token) {
+      this.router.navigate(['/dashboard'])
+      this.snackBar.open('無管理員權限', '關閉');
+    }
   }
 
 }

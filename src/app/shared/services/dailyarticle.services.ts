@@ -16,6 +16,9 @@ export class DailyArticleService {
   get(): Observable<HttpResponse<DailyArticle[]>> {
     return this.http.get<DailyArticle[]>(this.resourceUrl, { observe: 'response' });
   }
+  getAll(): Observable<HttpResponse<any>> {
+    return this.http.get<any>(SERVER_API_URL + 'api/adminDailyarticle', { observe: 'response' });
+  }
 
   post(data: DailyArticle): Observable<HttpResponse<DailyArticle>> {
     return this.http.post<DailyArticle>(this.resourceUrl, data, { observe: 'response' });

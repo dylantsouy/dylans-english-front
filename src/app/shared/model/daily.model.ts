@@ -6,11 +6,21 @@ export interface DailyWord {
   sentenceChinese?: String,
   showDate?: String,
   updated?: Date,
-  created?: Date, 
+  created?: Date,
 }
 
 export interface DailyArticle {
   title?: String,
+  english?: String,
+  chinese?: String,
+  words?: Array<any>,
+  showDate?: String,
+  updated?: Date,
+  created?: Date,
+}
+
+export interface DailySentence {
+  _id?: any,
   english?: String,
   chinese?: String,
   words?: Array<any>,

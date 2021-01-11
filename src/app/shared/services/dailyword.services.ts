@@ -16,7 +16,9 @@ export class DailyWordService {
   get(): Observable<HttpResponse<DailyWord[]>> {
     return this.http.get<DailyWord[]>(this.resourceUrl, { observe: 'response' });
   }
-
+  getAll(): Observable<HttpResponse<any>> {
+    return this.http.get<any>(SERVER_API_URL + 'api/adminDailywords', { observe: 'response' });
+  }
   post(data: DailyWord): Observable<HttpResponse<DailyWord>> {
     return this.http.post<DailyWord>(this.resourceUrl, data, { observe: 'response' });
   }
