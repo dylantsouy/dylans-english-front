@@ -12,6 +12,7 @@ material-dashboard-angular
 ├── editorconfig
 ├── gitignore
 ├── e2e
+├── .gitlab-ci.yml
 ├── karma.conf.js
 ├── package-lock.json
 ├── package.json
