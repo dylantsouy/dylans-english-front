@@ -74,6 +74,9 @@ https://dylanz-english-front.herokuapp.com/dashboard
 - [Angular](https://angular.io/) - JavaScript Framework
 - [MUI](https://mui.com/) - UI Framework
 - [Typescript](https://www.typescriptlang.org/) - JavaScript with syntax for types
+- [NodeJs](https://nodejs.org/en/) - Server Environment
+- [Express](https://expressjs.com/) - Server Framework- 
+- [MongoDB](https://www.mongodb.com/) - Database
 
 ## ✍️ Authors <a name = "authors"></a>
 
