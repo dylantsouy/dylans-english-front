@@ -2,7 +2,7 @@
   <a href="" rel="noopener">
  <img width=400px height=200px src="https://i.imgur.com/epSsP5l.png" alt="Project logo"></a>
 </p>
-![]()
+
 <h3 align="center">Dylan's-English</h3>
 <p align="center">https://dylanz-english-front.herokuapp.com/dashboard
 </p>
