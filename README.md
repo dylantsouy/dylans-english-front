@@ -26,11 +26,6 @@
 
 ## 🏁 Getting Started <a name = "getting_started"></a>
 
-
-
-
-
-
 ### Installing
 
 In the project directory, you can run:
