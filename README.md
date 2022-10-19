@@ -14,6 +14,7 @@
 
 - [About](#about)
 - [Getting Started](#getting_started)
+- [Running the tests](#tests)
 - [Deployment](#deployment)
 - [Usage](#usage)
 - [Built Using](#built_using)
