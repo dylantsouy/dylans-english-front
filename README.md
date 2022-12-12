@@ -4,7 +4,7 @@
 </p>
 
 <h3 align="center">Dylan's-English</h3>
-<p align="center">https://dylanz-english-front.herokuapp.com/dashboard
+<p align="center">https://dylantsouy.github.io/dylans-english-front/dashboard
 </p>
 
 
@@ -65,8 +65,11 @@ Hope you can enjoy it!
 
 ## 🚀 Deployment <a name = "deployment"></a>
 
-Deploy to Heroku
-https://dylanz-english-front.herokuapp.com/dashboard
+Frontend Deploy By github page
+https://pages.github.com/
+
+API Deploy By Render
+https://render.com/
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
@@ -76,6 +79,7 @@ https://dylanz-english-front.herokuapp.com/dashboard
 - [NodeJs](https://nodejs.org/en/) - Server Environment
 - [Express](https://expressjs.com/) - Server Framework- 
 - [MongoDB](https://www.mongodb.com/) - Database
+- [Render](https://render.com/) - Clould
 
 ## ✍️ Authors <a name = "authors"></a>
 
